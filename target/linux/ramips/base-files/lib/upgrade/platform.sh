@@ -117,6 +117,7 @@ platform_check_image() {
 	oy-0001|\
 	pbr-d1|\
 	pbr-m1|\
+	dhr-v1|\
 	psg1208|\
 	psg1218a|\
 	psg1218b|\

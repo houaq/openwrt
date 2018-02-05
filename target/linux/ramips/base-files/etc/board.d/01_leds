@@ -306,6 +306,11 @@ pbr-m1)
 	ucidef_set_led_default "power" "power" "$boardname:blue:power" "1"
 	ucidef_set_led_default "sys" "sys" "$boardname:blue:sys" "1"
 	;;
+dhr-v1)
+	set_wifi_led "mt76-phy0"
+	ucidef_set_led_default "sys" "sys" "$boardname:green:sys" "1"
+	ucidef_set_led_netdev "wan" "wan" "$boardname:green:wan" eth0.1
+	;;
 d-team,newifi-d2)
 	set_usb_led "$boardname:blue:usb"
 	ucidef_set_led_switch "internet" "internet" "$boardname:amber:internet" "switch0" "0x10"
