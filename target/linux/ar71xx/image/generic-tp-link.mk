@@ -62,6 +62,18 @@ define Device/archer-c60-v1
 endef
 TARGET_DEVICES += archer-c60-v1
 
+define Device/archer-c60-v2
+  $(Device/archer-c60-v1)
+  DEVICE_TITLE := TP-LINK Archer C60 v2
+  BOARDNAME := ARCHER-C60-V2
+  TPLINK_BOARD_ID := ARCHER-C60-V2
+  DEVICE_PROFILE := ARCHERC60V2
+  IMAGE_SIZE := 7808k
+  MTDPARTS := spi0.0:192k(u-boot)ro,7808k(firmware),128k(tplink)ro,64k(art)ro
+  SUPPORTED_DEVICES := archer-c60-v2
+endef
+TARGET_DEVICES += archer-c60-v2
+
 define Device/archer-c5-v1
   $(Device/tplink-16mlzma)
   DEVICE_TITLE := TP-LINK Archer C5 v1
@@ -132,13 +144,16 @@ TARGET_DEVICES += archer-c7-v4
 define Device/cpe510-520-v1
   DEVICE_TITLE := TP-LINK CPE510/520 v1
   DEVICE_PACKAGES := rssileds
-  MTDPARTS := spi0.0:128k(u-boot)ro,64k(partition-table)ro,64k(product-info)ro,1536k(kernel),6144k(rootfs),192k(config)ro,64k(ART)ro,7680k@0x40000(firmware)
+  MTDPARTS := spi0.0:128k(u-boot)ro,64k(partition-table)ro,64k(product-info)ro,1792k(kernel),5888k(rootfs),192k(config)ro,64k(ART)ro,7680k@0x40000(firmware)
   IMAGE_SIZE := 7680k
   BOARDNAME := CPE510
   TPLINK_BOARD_ID := CPE510
   DEVICE_PROFILE := CPE510
   LOADER_TYPE := elf
-  KERNEL := kernel-bin | patch-cmdline | lzma | loader-kernel
+  LOADER_FLASH_OFFS := 0x43000
+  COMPILE := loader-$(1).elf
+  COMPILE/loader-$(1).elf := loader-okli-compile
+  KERNEL := kernel-bin | lzma | uImage lzma -M 0x4f4b4c49 | loader-okli $(1) 12288
   IMAGES := sysupgrade.bin factory.bin
   IMAGE/sysupgrade.bin := append-rootfs | tplink-safeloader sysupgrade
   IMAGE/factory.bin := append-rootfs | tplink-safeloader factory
@@ -183,6 +198,25 @@ define Device/eap120-v1
   IMAGE/factory.bin := append-rootfs | tplink-safeloader factory
 endef
 TARGET_DEVICES += eap120-v1
+
+define Device/re355-v1
+  DEVICE_TITLE := TP-LINK RE355 v1
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca988x
+  MTDPARTS := spi0.0:128k(u-boot)ro,6016k(firmware),64k(partition-table)ro,64k(product-info)ro,1856k(config)ro,64k(art)ro
+  IMAGE_SIZE := 7936k
+  BOARDNAME := RE355
+  TPLINK_BOARD_ID := RE355
+  DEVICE_PROFILE := RE355
+  LOADER_TYPE := elf
+  TPLINK_HWID := 0x0
+  TPLINK_HWREV := 0
+  TPLINK_HEADER_VERSION := 1
+  KERNEL := kernel-bin | patch-cmdline | lzma | tplink-v1-header
+  IMAGES := sysupgrade.bin factory.bin
+  IMAGE/sysupgrade.bin := append-rootfs | tplink-safeloader sysupgrade
+  IMAGE/factory.bin := append-rootfs | tplink-safeloader factory
+endef
+TARGET_DEVICES += re355-v1
 
 define Device/re450-v1
   DEVICE_TITLE := TP-LINK RE450 v1

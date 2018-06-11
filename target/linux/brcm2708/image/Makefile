@@ -47,7 +47,6 @@ endef
 
 ### Devices ###
 define Device/Default
-  FILESYSTEMS := ext4
   KERNEL := kernel-bin | kernel-img
   KERNEL_IMG := kernel.img
   IMAGES := sdcard.img.gz
@@ -64,9 +63,9 @@ ifeq ($(SUBTARGET),bcm2708)
 endif
 
 define Device/rpi-2
-  DEVICE_TITLE := Raspberry Pi 2B/3B/3CM
-  DEVICE_DTS := bcm2709-rpi-2-b bcm2710-rpi-3-b bcm2710-rpi-cm3
-  SUPPORTED_DEVICES := rpi-2-b rpi-3-b rpi-cm raspberrypi,2-model-b raspberrypi,3-model-b raspberrypi,compute-module-3
+  DEVICE_TITLE := Raspberry Pi 2B/3B/3B+/3CM
+  DEVICE_DTS := bcm2709-rpi-2-b bcm2710-rpi-3-b bcm2710-rpi-3-b-plus bcm2710-rpi-cm3
+  SUPPORTED_DEVICES := rpi-2-b rpi-3-b rpi-3-b-plus rpi-cm raspberrypi,2-model-b raspberrypi,3-model-b raspberrypi,3-model-b-plus raspberrypi,compute-module-3
 endef
 ifeq ($(SUBTARGET),bcm2709)
   TARGET_DEVICES += rpi-2
@@ -74,9 +73,9 @@ endif
 
 define Device/rpi-3
   KERNEL_IMG := kernel8.img
-  DEVICE_TITLE := Raspberry Pi 3B (64 bit)
-  DEVICE_DTS := broadcom/bcm2710-rpi-3-b
-  SUPPORTED_DEVICES := rpi-3-b raspberrypi,3-model-b
+  DEVICE_TITLE := Raspberry Pi 3B/3B+
+  DEVICE_DTS := broadcom/bcm2710-rpi-3-b broadcom/bcm2710-rpi-3-b-plus
+  SUPPORTED_DEVICES := rpi-3-b rpi-3-b-plus raspberrypi,3-model-b raspberrypi,3-model-b-plus
 endef
 ifeq ($(SUBTARGET),bcm2710)
   TARGET_DEVICES += rpi-3
