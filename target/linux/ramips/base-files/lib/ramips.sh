@@ -394,6 +394,9 @@ ramips_board_detect() {
 	*"DHR-v1")
 		name="dhr-v1"
 		;;
+	*"DHR-v2")
+		name="dhr-v2"
+		;;
 	*"PSG1208")
 		name="psg1208"
 		;;

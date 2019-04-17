@@ -122,6 +122,7 @@ platform_check_image() {
 	pbr-d1|\
 	pbr-m1|\
 	dhr-v1|\
+	dhr-v2|\
 	psg1208|\
 	psg1218a|\
 	psg1218b|\

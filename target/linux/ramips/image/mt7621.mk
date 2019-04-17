@@ -195,6 +195,16 @@ define Device/dhr-v1
 endef
 TARGET_DEVICES += dhr-v1
 
+define Device/dhr-v2
+  DTS := DHR-v2
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := DHR-v2
+  DEVICE_PACKAGES := \
+	kmod-sdhci-mt7620 \
+	kmod-usb3 wpad-mini
+endef
+TARGET_DEVICES += dhr-v2
+
 define Device/r6220
   DTS := R6220
   BLOCKSIZE := 128k

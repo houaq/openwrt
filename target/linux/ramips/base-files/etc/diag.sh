@@ -283,6 +283,7 @@ get_status_led() {
 	mqmaker,witi-256m|\
 	mqmaker,witi-512m|\
 	dhr-v1|\
+	dhr-v2|\
 	zbt-wr8305rt)
 		status_led="$boardname:green:sys"
 		;;

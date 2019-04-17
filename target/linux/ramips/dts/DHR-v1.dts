@@ -49,9 +49,29 @@
 			label = "dhr-v1:green:sys";
 			gpios = <&gpio0 31 GPIO_ACTIVE_LOW>;
 		};
+		online {
+			label = "dhr-v1:yellow:online";
+			gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;
+		};
 		wan {
 			label = "dhr-v1:green:wan";
 			gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+		};
+		sig1 {
+			label = "dhr-v1:green:sig1";
+			gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+		};
+		sig2 {
+			label = "dhr-v1:green:sig2";
+			gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+		};
+		sig3 {
+			label = "dhr-v1:green:sig3";
+			gpios = <&gpio0 23 GPIO_ACTIVE_LOW>;
+		};
+		relay {
+			label = "dhr-v1:no:relay";
+			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
 		};
 	};
 };
@@ -98,12 +118,22 @@
 
 &pcie {
 	status = "okay";
-
+/*
 	pcie0 {
 		wifi@14c3,7662 {
 			compatible = "pci14c3,7662";
 			reg = <0x0000 0 0 0 0>;
 			mediatek,mtd-eeprom = <&factory 0x0000>;
+		};
+	};
+*/
+	pcie0 {
+		mt76@1,0 {
+			reg = <0x0000 0 0 0 0>;
+			device_type = "pci";
+			mediatek,mtd-eeprom = <&factory 0x0000>;
+			ieee80211-freq-limit = <2400000 2500000>;
+			ralink,5ghz = <0>;
 		};
 	};
 };
@@ -115,7 +145,7 @@
 &pinctrl {
 	state_default: pinctrl0 {
 		gpio {
-			ralink,group = "wdt", "rgmii2", "jtag", "mdio";
+			ralink,group = "rgmii2", "jtag", "mdio";
 			ralink,function = "gpio";
 		};
 	};
