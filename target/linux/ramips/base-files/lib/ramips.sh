@@ -236,6 +236,7 @@ ramips_board_detect() {
 		name="hg255d"
 		;;
 	*"HLK-RM04")
+	*"-UM202")
 		name="hlk-rm04"
 		;;
 	*"HPM")

@@ -7,20 +7,21 @@
 
 / {
 	compatible = "hilink,hlk-rm04", "ralink,rt5350-soc";
-	model = "HILINK HLK-RM04";
+	model = "BYEE BY-UM202";
 
 	memory@0 {
 		device_type = "memory";
-		reg = <0x0 0x1000000>;
+		reg = <0x0 0x2000000>;
 	};
 
 	chosen {
-		bootargs = "console=ttyS1,57600";
+		bootargs = "console=ttyS0,57600 loglevel=8";
 	};
 
 	gpio-export {
 		compatible = "gpio-export";
 		#size-cells = <0>;
+		status = "disabled";
 
 		/* I2C */
 		gpio1 {
@@ -37,27 +38,43 @@
 		};
 	};
 
+	gpio-leds {
+		compatible = "gpio-leds";
+		system {
+			label = "system";
+			gpios = <&gpio0 0 1>;
+		};
+		relay {
+			label = "relay";
+			gpios = <&gpio0 2 0>;
+		};
+	};
+
 	gpio-keys-polled {
 		compatible = "gpio-keys-polled";
 		#address-cells = <1>;
 		#size-cells = <0>;
 		poll-interval = <20>;
+		/*
 		reset {
 			label = "reset";
-			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
 			linux,code = <KEY_RESTART>;
 		};
-		wps {
-			label = "wps";
-			gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
-			linux,code = <KEY_WPS_BUTTON>;
+		*/
+		DI-1 {
+			label = "DI-1";
+			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+			linux,code = <0x100>;
 		};
 	};
 };
 
+/*
 &uart {
 	status = "okay";
 };
+*/
 
 &spi0 {
 	status = "okay";
@@ -89,7 +106,7 @@
 
 		partition@50000 {
 			label = "firmware";
-			reg = <0x50000 0x3b0000>;
+			reg = <0x50000 0x7b0000>;
 		};
 	};
 };
