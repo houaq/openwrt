@@ -73,6 +73,7 @@ platform_check_image() {
 	hc5661a|\
 	hg255d|\
 	hlk-rm04|\
+	hk-um202|\
 	hpm|\
 	ht-tm02|\
 	hw550-3g|\

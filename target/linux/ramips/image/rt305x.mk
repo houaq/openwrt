@@ -372,6 +372,15 @@ define Device/hlk-rm04
 endef
 TARGET_DEVICES += hlk-rm04
 
+define Device/hk-um202
+  DTS := HK-UM202
+  IMAGES += factory.bin
+  IMAGE/factory.bin := \
+	$$(sysupgrade_bin) | check-size $$$$(IMAGE_SIZE) | hilink-header
+  DEVICE_TITLE := HK-UM202 NetKeeper
+endef
+TARGET_DEVICES += hk-um202
+
 define Device/ht-tm02
   DTS := HT-TM02
   DEVICE_TITLE := HooToo HT-TM02
