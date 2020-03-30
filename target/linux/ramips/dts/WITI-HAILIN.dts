@@ -1,0 +1,13 @@
+/dts-v1/;
+
+#include "WITI.dtsi"
+
+/ {
+	compatible = "mqmaker,witi-hailin", "mqmaker,witi", "mediatek,mt7621-soc";
+	model = "HaiLin WiTi (256MB RAM)";
+
+	memory@0 {
+		device_type = "memory";
+		reg = <0x0 0x10000000>;
+	};
+};

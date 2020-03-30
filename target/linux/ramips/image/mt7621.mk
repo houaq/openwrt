@@ -356,6 +356,16 @@ define Device/wf-2881
 endef
 TARGET_DEVICES += wf-2881
 
+define Device/mqmaker_witi-hailin
+  DTS := WITI-HAILIN
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := HaiLin WiTi (256MB RAM)
+  DEVICE_PACKAGES := \
+	kmod-sdhci-mt7620 kmod-usb3 wpad-mini
+  SUPPORTED_DEVICES += witi
+endef
+TARGET_DEVICES += mqmaker_witi-hailin
+
 define Device/mqmaker_witi-256m
   DTS := WITI-256M
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
