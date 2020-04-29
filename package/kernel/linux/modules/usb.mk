@@ -1041,7 +1041,9 @@ define KernelPackage/usb-net
   KCONFIG:=CONFIG_USB_USBNET \
 	CONFIG_USB_NET_DRIVERS
   AUTOLOAD:=$(call AutoProbe,usbnet)
-  FILES:=$(LINUX_DIR)/drivers/$(USBNET_DIR)/usbnet.ko
+  FILES:=\
+	$(LINUX_DIR)/drivers/$(USBNET_DIR)/usbnet.ko \
+	$(LINUX_DIR)/drivers/$(USBNET_DIR)/simcom_wwan.ko
   $(call AddDepends/usb)
 endef
 
