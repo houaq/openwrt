@@ -18,27 +18,6 @@
 		bootargs = "console=ttyS1,57600 quiet loglevel=3";
 	};
 
-	gpio-export {
-		compatible = "gpio-export";
-		#size-cells = <0>;
-
-		gpio0 {
-			gpio-export,name = "gpio0";
-			gpio-export,direction_may_change = <1>;
-			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
-		};
-		gpio1 {
-			gpio-export,name = "gpio1";
-			gpio-export,direction_may_change = <1>;
-			gpios = <&gpio0 1 GPIO_ACTIVE_HIGH>;
-		};
-		gpio2 {
-			gpio-export,name = "gpio2";
-			gpio-export,direction_may_change = <1>;
-			gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
-		};
-	};
-
 	gpio-keys-polled {
 		compatible = "gpio-keys-polled";
 		#address-cells = <1>;
