@@ -15,7 +15,7 @@
 	};
 
 	chosen {
-		bootargs = "console=ttyS1,57600 quiet loglevel=3";
+		bootargs = "console=null quiet loglevel=3";
 	};
 
 	gpio-keys-polled {
