@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Copyright (C) 2013-2015 OpenWrt.org
+#
+
+. /lib/functions/uci-defaults.sh
+
+board=$(board_name)
+
+board_config_update
+
+case "$board" in
+fsl,imx6ull-14x14-evk | generic | hd6ul )
+	ucidef_set_interfaces_lan_wan 'eth0' 'eth1'
+	;;
+esac
+
+board_config_flush
+
+exit 0
