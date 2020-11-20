@@ -10,6 +10,9 @@ ramips_board_detect() {
 	machine=$(awk 'BEGIN{FS="[ \t]+:[ \t]"} /machine/ {print $2}' /proc/cpuinfo)
 
 	case "$machine" in
+	*"GC100")
+		name="byee-gc100"
+		;;
 	*"11AC NAS Router")
 		name="11acnas"
 		;;

@@ -178,6 +178,7 @@ platform_check_image() {
 	whr-g300n|\
 	widora,neo-16m|\
 	widora,neo-32m|\
+	byee-gc100|\
 	mqmaker,witi-256m|\
 	mqmaker,witi-512m|\
 	mqmaker,witi-hailin|\

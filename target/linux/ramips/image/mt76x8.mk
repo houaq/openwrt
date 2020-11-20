@@ -290,6 +290,14 @@ define Device/widora_neo-32m
 endef
 TARGET_DEVICES += widora_neo-32m
 
+define Device/byee-gc100
+  DTS := BYEE-GC100
+  IMAGE_SIZE := $(ralink_default_fw_size_32M)
+  DEVICE_TITLE := BYEE-GC100
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci
+endef
+TARGET_DEVICES += byee-gc100
+
 define Device/wrtnode2p
   DTS := WRTNODE2P
   IMAGE_SIZE := $(ralink_default_fw_size_16M)

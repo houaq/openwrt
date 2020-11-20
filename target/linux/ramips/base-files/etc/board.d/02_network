@@ -61,6 +61,7 @@ ramips_setup_interfaces()
 	w150m|\
 	widora,neo-16m|\
 	widora,neo-32m|\
+	byee-gc100|\
 	wnce2001|\
 	zbt-cpe102|\
 	zorlik,zl5900v2|\

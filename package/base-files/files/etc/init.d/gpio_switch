@@ -16,6 +16,7 @@ load_gpio_switch()
 	config_get name "$1" name
 	config_get gpio_pin "$1" gpio_pin
 	config_get direction "$1" direction
+	config_get active_low "$1" active_low
 	config_get value "$1" value
 
 	local gpio_path="/sys/class/gpio/gpio${gpio_pin}"
@@ -32,6 +33,7 @@ load_gpio_switch()
 		echo $direction >"$gpio_path/direction"
 	fi
 	[ -n "$value" ] && echo $value >"$gpio_path/value"
+	[ -n "$active_low" ] && echo $active_low >"$gpio_path/active_low"
 }
 
 service_triggers()
