@@ -22,7 +22,7 @@
 
 #include "util.h"
 //#define CONFIG_EXIT_WHEN_DIAL_FAILED
-#define CONFIG_BACKGROUND_WHEN_GET_IP
+//#define CONFIG_BACKGROUND_WHEN_GET_IP
 //#define CONFIG_PID_FILE_FORMAT "/var/run/quectel-CM-%s.pid" //for example /var/run/quectel-CM-wwan0.pid
 
 int debug_qmi = 0;
