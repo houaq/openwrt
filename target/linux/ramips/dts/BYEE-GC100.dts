@@ -65,3 +65,12 @@
 		};
 	};
 };
+
+&i2c {
+	status = "okay";
+	max1037: adc@64 {
+		status = "okay";
+		compatible = "maxim,max1037";
+		reg = <0x64>;
+	};
+};
