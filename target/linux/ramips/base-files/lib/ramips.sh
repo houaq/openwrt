@@ -13,6 +13,9 @@ ramips_board_detect() {
 	*"GC100")
 		name="byee-gc100"
 		;;
+	*"GC100B")
+		name="byee-gc100b"
+		;;
 	*"11AC NAS Router")
 		name="11acnas"
 		;;

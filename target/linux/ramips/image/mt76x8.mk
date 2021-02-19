@@ -298,6 +298,14 @@ define Device/byee-gc100
 endef
 TARGET_DEVICES += byee-gc100
 
+define Device/byee-gc100b
+  DTS := BYEE-GC100B
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  DEVICE_TITLE := BYEE-GC100B
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci
+endef
+TARGET_DEVICES += byee-gc100b
+
 define Device/wrtnode2p
   DTS := WRTNODE2P
   IMAGE_SIZE := $(ralink_default_fw_size_16M)

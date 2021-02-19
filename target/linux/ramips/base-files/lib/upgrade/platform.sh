@@ -179,6 +179,7 @@ platform_check_image() {
 	widora,neo-16m|\
 	widora,neo-32m|\
 	byee-gc100|\
+	byee-gc100b|\
 	mqmaker,witi-256m|\
 	mqmaker,witi-512m|\
 	mqmaker,witi-hailin|\
