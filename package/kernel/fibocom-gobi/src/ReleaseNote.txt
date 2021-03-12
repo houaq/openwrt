@@ -1,0 +1,13 @@
+【Version Description】
+	【Version Number】
+		Fibocom_GobiNet_Driver_1_00_00_08
+	【Modification Description】
+		The following problems have been modified in this version：
+		1、Unable to get IP by dialing DHCP。
+【Historical Version】
+Fibocom_GobiNet_Driver_1_00_00_01
+Fibocom_GobiNet_Driver_1_00_00_03
+Fibocom_GobiNet_Driver_1_00_00_04
+Fibocom_GobiNet_Driver_1_00_00_05
+Fibocom_GobiNet_Driver_1_00_00_06
+Fibocom_GobiNet_Driver_1_00_00_07

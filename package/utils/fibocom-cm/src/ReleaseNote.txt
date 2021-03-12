@@ -1,0 +1,22 @@
+Release Notes
+[WCDMA&LTE_QConnectManager_Linux_V1.0.0]
+Date:   2020/01/04
+enhancement:
+1. Implement help message.
+
+root@ubuntu:# ./fibo-dial -h
+[02-26_10:39:21:353] Usage: ./fibo-dial [options]
+[02-26_10:39:21:353] -s [apn [user password auth]]          Set apn/user/password/auth get from your network provider
+[02-26_10:39:21:353] -p pincode                             Verify sim card pin if sim card is locked
+[02-26_10:39:21:353] -f logfilename                         Save log message of this program to file
+[02-26_10:39:21:353] -i interface                           Specify network interface(default auto-detect)
+[02-26_10:39:21:353] -4                                     IPv4 protocol
+[02-26_10:39:21:353] -6                                     IPv6 protocol
+[02-26_10:39:21:353] -m muxID                               Specify muxid when set multi-pdn data connection.
+[02-26_10:39:21:353] -n channelID                           Specify channelID when set multi-pdn data connection(default 1).
+[02-26_10:39:21:353] [Examples]
+[02-26_10:39:21:353] Example 1: ./fibo-dial
+[02-26_10:39:21:353] Example 2: ./fibo-dial -s 3gnet
+[02-26_10:39:21:353] Example 3: ./fibo-dial -s 3gnet carl 1234 0 -p 1234 -f log.txt
+
+
